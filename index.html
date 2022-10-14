@@ -7,7 +7,43 @@
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
     <link rel="stylesheet" href="TemplateData/style.css">
   </head>
-  <body>
+   <script type="text/javascript">
+  function FitScreen() {
+                  console.log = console.info = console.warn = function() {};
+                  var w = %UNITY_WIDTH%;
+                  var h = %UNITY_HEIGHT%;
+                  var availWidth = window.innerWidth;
+                  var availHeight = window.innerHeight;
+
+                  var canvas = document.getElementById("#canvas");
+                  /**
+                  //按比例调节 按照unity中设置分辨率等比例缩放
+                  if (availWidth / availHeight > w / h) {
+                          height = availHeight;
+                          width = (height * w / h);
+                   } else {
+                          width = availWidth;
+                          height = width * h / w;
+                  }
+                  */
+                  height = availHeight;
+                  width = availWidth;
+                  document.getElementById("unityContainer").style.width = width + "px";
+                  document.getElementById("unityContainer").style.height = height + "px";
+
+                  canvas.style.width = "100%";
+                  canvas.style.height = "100%";
+                  if (window.WEBAudioMute) {
+                          window.WEBAudioMute(false);
+                  }
+          }
+          function mute() {
+                  if (window.WEBAudioMute) {
+                          window.WEBAudioMute(true);
+                  }
+          }
+  </script>
+  <body onFocus="FitScreen();" onLoad="FitScreen();" onResize="FitScreen();">
     <div id="unity-container" class="unity-desktop">
       <canvas id="unity-canvas" width=960 height=600></canvas>
       <div id="unity-loading-bar">
