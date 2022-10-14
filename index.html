@@ -3,47 +3,11 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>Unity WebGL Player | New Unity Project</title>
+    <title>Unity WebGL Player | WebGLScreenOrientationDetect</title>
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
     <link rel="stylesheet" href="TemplateData/style.css">
   </head>
-   <script type="text/javascript">
-  function FitScreen() {
-                  console.log = console.info = console.warn = function() {};
-                  var w = %UNITY_WIDTH%;
-                  var h = %UNITY_HEIGHT%;
-                  var availWidth = window.innerWidth;
-                  var availHeight = window.innerHeight;
-
-                  var canvas = document.getElementById("#canvas");
-                  /**
-                  //按比例调节 按照unity中设置分辨率等比例缩放
-                  if (availWidth / availHeight > w / h) {
-                          height = availHeight;
-                          width = (height * w / h);
-                   } else {
-                          width = availWidth;
-                          height = width * h / w;
-                  }
-                  */
-                  height = availHeight;
-                  width = availWidth;
-                  document.getElementById("unityContainer").style.width = width + "px";
-                  document.getElementById("unityContainer").style.height = height + "px";
-
-                  canvas.style.width = "100%";
-                  canvas.style.height = "100%";
-                  if (window.WEBAudioMute) {
-                          window.WEBAudioMute(false);
-                  }
-          }
-          function mute() {
-                  if (window.WEBAudioMute) {
-                          window.WEBAudioMute(true);
-                  }
-          }
-  </script>
-  <body onFocus="FitScreen();" onLoad="FitScreen();" onResize="FitScreen();">
+  <body>
     <div id="unity-container" class="unity-desktop">
       <canvas id="unity-canvas" width=960 height=600></canvas>
       <div id="unity-loading-bar">
@@ -56,7 +20,7 @@
       <div id="unity-footer">
         <div id="unity-webgl-logo"></div>
         <div id="unity-fullscreen-button"></div>
-        <div id="unity-build-title">New Unity Project</div>
+        <div id="unity-build-title">WebGLScreenOrientationDetect</div>
       </div>
     </div>
     <script>
@@ -94,13 +58,13 @@
       var buildUrl = "Build";
       var loaderUrl = buildUrl + "/a.loader.js";
       var config = {
-        dataUrl: buildUrl + "/a.data.unityweb",
-        frameworkUrl: buildUrl + "/a.framework.js.unityweb",
-        codeUrl: buildUrl + "/a.wasm.unityweb",
+        dataUrl: buildUrl + "/a.data",
+        frameworkUrl: buildUrl + "/a.framework.js",
+        codeUrl: buildUrl + "/a.wasm",
         streamingAssetsUrl: "StreamingAssets",
         companyName: "DefaultCompany",
-        productName: "New Unity Project",
-        productVersion: "1.0",
+        productName: "WebGLScreenOrientationDetect",
+        productVersion: "0.1",
         showBanner: unityShowBanner,
       };
 
